@@ -44,7 +44,7 @@ use crate::stream::{Recover, Recoverable};
 /// Additionally, some basic types implement `Parser` as well, including
 /// - `u8` and `char`, see [`winnow::token::one_of`][crate::token::one_of]
 /// - `&[u8]` and `&str`, see [`winnow::token::literal`][crate::token::literal]
-pub trait Parser<I, O, E> {
+pub trait Parser<I, O, E = crate::error::ContextError> {
     /// Parse all of `input`, generating `O` from it
     ///
     /// This is intended for integrating your parser into the rest of your application.
